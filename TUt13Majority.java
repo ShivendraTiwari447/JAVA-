@@ -26,6 +26,7 @@ public class TUt13Majority {
         int a[]={2,4,34,2,42,2,2};
         int m=majority(a);
         System.out.println(m);
+        System.out.println("------------------");
     }
     
 }
