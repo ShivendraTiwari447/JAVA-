@@ -23,11 +23,37 @@ public class Tut17sec_lar {
         }
         return sec_small;
     }
+
+    static int sec_large(int arr[])
+    {
+        int large=Integer.MIN_VALUE;
+        int sec_large=Integer.MIN_VALUE;
+
+        if(arr.length<2)
+        {
+            return -1;
+        }
+        for(int i=0;i<arr.length;i++){
+            
+            if(arr[i]>large)
+            {
+                sec_large=large;
+                large=arr[i];
+            }
+            else if(arr[i]>sec_large && arr[i]!=large)
+            {
+                sec_large=arr[i];
+            }
+        }
+        return sec_large;
+    }
     public static void main(String[] args) {
         int arr[]={1,21,34,44,5,2};
 
         int res=sec_small(arr);
         System.out.println(res);
+        int res1=sec_large(arr);
+        System.out.println(res1);
 
     }
     
