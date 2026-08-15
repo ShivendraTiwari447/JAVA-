@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 public class Tut18longestSubaarayWithK {
 
     static int longest_subarray_with_sum_k(int arr[], int k) {
@@ -21,6 +23,28 @@ public class Tut18longestSubaarayWithK {
         }
 
         return max_length;
+    }
+
+    static int prefixS(int arr[],int k)
+    {
+        int preS=0;
+        int count=0;
+        HashMap<Integer,Integer> h1 =new HashMap<>();
+        h1.put(0, 1);
+
+
+
+        
+        for(int i=0;i<arr.length;i++){
+
+            preS+=arr[i];
+            if(h1.containsKey(preS-k)){
+                count+=h1.get(preS-k);
+
+            }
+            h1.put(preS, h1.getOrDefault(preS, 0) + 1);
+        }
+        return count;
     }
 
     public static void main(String[] args) {
