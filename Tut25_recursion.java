@@ -35,6 +35,35 @@ public class Tut25_recursion {
     }
 
 
+    static  int sum(int n ){
+       if(n==1){
+        return 1;
+       }
+
+       int tot1=sum(n-1);
+       int tot=n+tot1;
+
+       return tot;
+
+
+    }
+
+    static int fact(int n)
+    {
+        if(n==1 || n==0)
+        {
+            return 1;
+        }
+
+        int fact1=fact(n-1);
+        int factt=n*fact1;
+
+        return factt;
+    }
+
+
+    
+
 
     public static void main(String[] args) {
 
@@ -51,6 +80,13 @@ public class Tut25_recursion {
 
 
         // print_no_r(10);
+
+    //   System.out.println(sum(5));
+
+    // System.out.println(fact(5));
+
+
+
         
     }
     
