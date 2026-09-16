@@ -9,10 +9,23 @@ public class Tut25_recursion {
         }
         return is_sorted(arr, i+1);
     }
+    static void print(int n,int i){
+       if(n==i){
+       return;
+       }
+       System.out.println("shiv"+i);
+
+       print(n, i+1);
+    }
     public static void main(String[] args) {
 
         int arr[]={1,23,4,53,5,3,5};
-        System.out.println(is_sorted(arr, 0));
+        
+        // 
+        // System.out.println(is_sorted(arr, 0));
+
+
+        print(5, 0);
         
     }
     
