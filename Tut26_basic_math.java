@@ -26,17 +26,31 @@ public class Tut26_basic_math {
 
     }
 
-    static void palindrome(String n1)
-    {
-        
+ static boolean palindrome(String n1) {
+
+    int s = 0;
+    int e = n1.length() - 1;
+
+    while (s < e) {
+
+        if (n1.charAt(s) != n1.charAt(e)) {
+            return false;
+        }
+
+        s++;
+        e--;
     }
+
+    return true;
+}
     public static void main(String[] args) {
     //    int n=10032;
     //    count(n);
 
     // System.out.println(reversee(158));
-
-
+        String s1="racecar";
+        System.out.println(palindrome(s1));
+    
     
     }
     
