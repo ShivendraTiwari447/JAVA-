@@ -212,6 +212,33 @@ class Tut001_basic_pattern {
         }
     }
 
+
+    static void pattern_17(int n) {
+
+    int spaces = n - 1;
+
+    for (int i = 1; i <= n; i++) {
+
+        // spaces
+        for (int j = spaces; j > 0; j--) {
+            System.out.print(" ");
+        }
+
+        // a b c ... 
+        for (char ch = 'a'; ch < 'a' + i; ch++) {
+            System.out.print(ch);
+        }
+
+        // ... b a
+        for (char ch = (char)('a' + i - 2); ch >= 'a'; ch--) {
+            System.out.print(ch);
+        }
+
+        spaces--;
+
+        System.out.println();
+    }
+}
     
     public static void main(String[] args) {
         System.out.println("Hello");
@@ -246,8 +273,8 @@ class Tut001_basic_pattern {
         // pattern_15(5);
         // pattern_16(5);
 
-        
 
+        pattern_17(5);
 
 
 
