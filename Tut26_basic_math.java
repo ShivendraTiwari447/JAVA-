@@ -42,56 +42,67 @@ public class Tut26_basic_math {
         return true;
     }
 
-    static int gcd(int a,int b){
-        while(a>0 && b>0 )
-        {
-            if(a>b)
-            {
-                a=a%b;
-            }
-            else{
-                b=b%a;
+    static int gcd(int a, int b) {
+        while (a > 0 && b > 0) {
+            if (a > b) {
+                a = a % b;
+            } else {
+                b = b % a;
             }
 
-            if(a==0)
+            if (a == 0)
                 return b;
         }
         return a;
     }
 
+    static boolean armstrong(int n) {
+        int ans = 0;
+        int digit;
+        int num = n;
 
-   static boolean armstrong(int n) {
-    int ans = 0;
-    int digit;
-    int num = n;
+        while (num != 0) {
+            digit = num % 10;
+            ans = ans + (digit * digit * digit);
+            num = num / 10;
+        }
 
-    while (num != 0) {
-        digit = num % 10;
-        ans = ans + (digit * digit * digit);
-        num = num / 10;
+        return ans == n;
     }
 
-    return ans == n;
-}
+    static List<Integer> getDivisor(int n) {
+        List<Integer> res = new ArrayList<>();
 
-static List<Integer> getDivisor(int n) {
-    List<Integer> res = new ArrayList<>();
+        for (int i = 1; i * i <= n; i++) {
 
-    for (int i = 1; i * i <= n; i++) {
+            if (n % i == 0) {
+                res.add(i);
 
-        if (n % i == 0) {
-            res.add(i);
-
-            if (i != n / i) {
-                res.add(n / i);
+                if (i != n / i) {
+                    res.add(n / i);
+                }
             }
+        }
+
+        Collections.sort(res);
+
+        return res;
+    }
+
+    static boolean isPrime(int n) {
+    if (n < 2) {
+        return false;
+    }
+
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) {
+            return false;
         }
     }
 
-    Collections.sort(res);
-
-    return res;
+    return true;
 }
+
     public static void main(String[] args) {
         // int n=10032;
         // count(n);
@@ -99,7 +110,6 @@ static List<Integer> getDivisor(int n) {
         // System.out.println(reversee(158));
         // String s1 = "racecar";
         // System.out.println(palindrome(s1));
-
 
         // System.out.println(armstrong(153));
 
