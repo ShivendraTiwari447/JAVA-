@@ -274,7 +274,7 @@ class Tut001_basic_pattern {
         // pattern_16(5);
 
 
-        pattern_17(5);
+        // pattern_17(5);
 
 
 
