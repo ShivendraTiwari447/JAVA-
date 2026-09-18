@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Tut26_basic_math {
 
     static void count(int n) {
@@ -71,6 +73,25 @@ public class Tut26_basic_math {
 
     return ans == n;
 }
+
+static List<Integer> getDivisor(int n) {
+    List<Integer> res = new ArrayList<>();
+
+    for (int i = 1; i * i <= n; i++) {
+
+        if (n % i == 0) {
+            res.add(i);
+
+            if (i != n / i) {
+                res.add(n / i);
+            }
+        }
+    }
+
+    Collections.sort(res);
+
+    return res;
+}
     public static void main(String[] args) {
         // int n=10032;
         // count(n);
@@ -80,7 +101,7 @@ public class Tut26_basic_math {
         // System.out.println(palindrome(s1));
 
 
-        System.out.println(armstrong(153));
+        // System.out.println(armstrong(153));
 
     }
 
