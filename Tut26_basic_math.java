@@ -57,13 +57,30 @@ public class Tut26_basic_math {
         return a;
     }
 
+
+   static boolean armstrong(int n) {
+    int ans = 0;
+    int digit;
+    int num = n;
+
+    while (num != 0) {
+        digit = num % 10;
+        ans = ans + (digit * digit * digit);
+        num = num / 10;
+    }
+
+    return ans == n;
+}
     public static void main(String[] args) {
         // int n=10032;
         // count(n);
 
         // System.out.println(reversee(158));
-        String s1 = "racecar";
-        System.out.println(palindrome(s1));
+        // String s1 = "racecar";
+        // System.out.println(palindrome(s1));
+
+
+        System.out.println(armstrong(153));
 
     }
 
