@@ -1,40 +1,102 @@
+// public class Tut27_rec_subsequence {
+
+//     static boolean isSubsequence(
+//             int nums[],
+//             int index,
+//             int sum,
+//             int k,
+//             int count) {
+
+//         // Base case
+//         if (index == nums.length) {
+//             return count > 0 && sum == k;
+//         }
+
+//         // Include
+//         boolean include = isSubsequence(
+//                 nums,
+//                 index + 1,
+//                 sum + nums[index],
+//                 k,
+//                 count + 1
+//         );
+
+//         if (include) {
+//             return true;
+//         }
+
+//         // Exclude
+//         boolean exclude = isSubsequence(
+//                 nums,
+//                 index + 1,
+//                 sum,
+//                 k,
+//                 count
+//         );
+
+//         return exclude;
+//     }
+
+//     public static void main(String[] args) {
+
+//         int nums[] = {1, 2, 3};
+//         int k = 5;
+
+//         boolean ans = isSubsequence(nums, 0, 0, k, 0);
+
+//         System.out.println(ans);
+//     }
+// }
+
+
+
+
+
+
+
+import java.util.ArrayList;
+
 public class Tut27_rec_subsequence {
 
-    static boolean isSubsequence(
+    static void printSubsequences(
             int nums[],
             int index,
             int sum,
             int k,
-            int count) {
+            ArrayList<Integer> curr) {
 
         // Base case
         if (index == nums.length) {
-            return count > 0 && sum == k;
+
+            if (!curr.isEmpty() && sum == k) {
+                System.out.println(curr);
+            }
+
+            return;
         }
 
-        // Include
-        boolean include = isSubsequence(
+        // Include current element
+        curr.add(nums[index]);
+
+        printSubsequences(
                 nums,
                 index + 1,
                 sum + nums[index],
                 k,
-                count + 1
+                curr
         );
 
-        if (include) {
-            return true;
-        }
+        // Backtrack
+        curr.remove(curr.size() - 1);
 
-        // Exclude
-        boolean exclude = isSubsequence(
+        // Exclude current element
+        printSubsequences(
                 nums,
                 index + 1,
                 sum,
                 k,
-                count
+                curr
         );
-
-        return exclude;
     }
 
     public static void main(String[] args) {
@@ -42,8 +104,12 @@ public class Tut27_rec_subsequence {
         int nums[] = {1, 2, 3};
         int k = 5;
 
-        boolean ans = isSubsequence(nums, 0, 0, k, 0);
-
-        System.out.println(ans);
+        printSubsequences(
+                nums,
+                0,
+                0,
+                k,
+                new ArrayList<>()
+        );
     }
 }
